@@ -25,11 +25,9 @@ class Topbar extends Component {
       ...document.querySelectorAll(".social-link-icons")
     ];
 
-    setTimeout(function() {
-      menu.classList.add("loaded-menu");
-      logo.classList.add("loaded-logo");
-      social.classList.add("loaded-social");
-    }, 400);
+    menu.classList.add("loaded-menu");
+    logo.classList.add("loaded-logo");
+    social.classList.add("loaded-social");
 
     let scrollpos = window.scrollY;
 
@@ -160,7 +158,7 @@ const Logo = styled.div`
   }
 
   span {
-    font-size: 2rem;
+    font-size: 2.55rem;
     margin-top: 0.25rem;
     margin-left: 0.75rem;
     font-weight: 400;
@@ -271,17 +269,6 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.text};
-
-  .nav-fadeIn {
-    top: 0;
-    height: 80px !important;
-    background: ${({ theme }) => theme.colors.secondaryDark75};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.highlight};
-    width: 402px !important;
-    margin-top: 0 !important;
-    font-size: 1.25rem !important;
-    margin-left: -201px !important;
-  }
 
   @media screen and (max-width: 360px) {
     height: auto !important;
