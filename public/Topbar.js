@@ -3,10 +3,10 @@ import styled from "styled-components";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
+  faFacebookF,
   faTwitter,
   faInstagram
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-brands-svg-icons";
 
 const NavWrapper = styled.section`
   position: fixed;
@@ -34,9 +34,6 @@ class Topbar extends Component {
     let scrollpos = window.scrollY;
 
     const add_class_on_scroll = () => {
-      console.log(nav);
-      console.log(logo);
-      console.log(social);
       nav.classList.add("nav-fadeIn");
       logo.classList.add("logo-fadeIn");
       logoSpans.forEach(function(span) {
@@ -75,7 +72,6 @@ class Topbar extends Component {
       } else {
         remove_class_on_scroll();
       }
-      console.log(scrollpos);
     });
   }
   render() {
@@ -115,8 +111,7 @@ class Topbar extends Component {
               <a href="#facebook">
                 <span className="social-link-text">Facebook</span>
                 <span className="social-link-icons">
-                  <FontAwesomeIcon icon={faFacebook} />
-                  <i className="fab fa-facebook-square"></i>
+                  <FontAwesomeIcon icon={faFacebookF} />
                 </span>
               </a>
             </li>
@@ -125,7 +120,6 @@ class Topbar extends Component {
                 <span className="social-link-text">Twitter</span>
                 <span className="social-link-icons">
                   <FontAwesomeIcon icon={faTwitter} />
-                  <i className="fab fa-twitter-square"></i>
                 </span>
               </a>
             </li>
@@ -134,7 +128,6 @@ class Topbar extends Component {
                 <span className="social-link-text">Instagram</span>
                 <span className="social-link-icons">
                   <FontAwesomeIcon icon={faInstagram} />
-                  <i className="fab fa-instagram"></i>
                 </span>
               </a>
             </li>
