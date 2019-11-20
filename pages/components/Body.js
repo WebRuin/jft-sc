@@ -7,19 +7,18 @@ const BodyStyle = styled.section`
   align-items: center;
   flex-direction: column;
   padding: 2rem;
+  color: ${({ theme }) => theme.colors.white};
   background: ${({ theme }) => theme.colors.highlight};
 
   h3 {
     font-size: 2.55rem;
     margin-bottom: 0;
-    color: ${({ theme }) => theme.colors.white};
   }
 
   p {
     font-size: 1.75rem;
     padding: 1rem 4rem;
     text-align: center;
-    color: ${({ theme }) => theme.colors.white};
   }
 
   p span {
