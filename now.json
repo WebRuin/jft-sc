@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/service-worker.js$",
+      "dest": "/_next/static/service-worker.js",
+      "headers": {
+        "cache-control": "public, max-age=43200, immutable",
+        "Service-Worker-Allowed": "/"
+      }
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/app/routes/api"
+    },
+    {
+      "src": "/page/(?<name>[^/]+)$",
+      "dest": "/www/page?name=$name"
+    },
+    {
+      "src": "/(.*\\.(js|jpg|json|css|ico|png)$)",
+      "dest": "/www/$1",
+      "headers": { "cache-control": "public,max-age=31536000,immutable" }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/www/$1",
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+    }
+  ]
+}
