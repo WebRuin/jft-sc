@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavWrapper = styled.section`
   position: fixed;
@@ -111,7 +115,7 @@ class Topbar extends Component {
               <a href="#facebook">
                 <span className="social-link-text">Facebook</span>
                 <span className="social-link-icons">
-                  <FontAwesomeIcon icon={faFacebook}
+                  <FontAwesomeIcon icon={faFacebook} />
                   <i className="fab fa-facebook-square"></i>
                 </span>
               </a>
@@ -120,6 +124,7 @@ class Topbar extends Component {
               <a href="#twitter">
                 <span className="social-link-text">Twitter</span>
                 <span className="social-link-icons">
+                  <FontAwesomeIcon icon={faTwitter} />
                   <i className="fab fa-twitter-square"></i>
                 </span>
               </a>
@@ -128,6 +133,7 @@ class Topbar extends Component {
               <a href="#instagram">
                 <span className="social-link-text">Instagram</span>
                 <span className="social-link-icons">
+                  <FontAwesomeIcon icon={faInstagram} />
                   <i className="fab fa-instagram"></i>
                 </span>
               </a>
