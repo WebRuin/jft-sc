@@ -10,6 +10,7 @@ const theme = {
     accent: "#5a5099",
     secondary: "#2204cc",
     secondaryDark75: "#0a023bb9",
+    darkText: "#2a2343",
     white: "#eee",
     black: "#333",
     blackAlpha25: "rgba(51, 51, 51, 0.25)"
@@ -73,14 +74,12 @@ const GlobalStyle = createGlobalStyle`
 
   .logo-fadeIn {
     width: 402px !important;
-    margin-top: 0 !important;
-    font-size: 1.25rem !important;
     margin-left: -201px !important;
   }
 
   .logo-span-fadeIn {
-    margin-left: 0.3rem !important;
-    font-size: 1.75rem !important;
+    margin-top: 8px !important;
+    font-size: 2.3rem !important;
   }
 
   @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
