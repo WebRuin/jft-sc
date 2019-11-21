@@ -110,7 +110,6 @@ const Topbar = () => (
     </Nav>
   </NavWrapper>
 );
->>>>>>> pages-form
 
 const Logo = styled.div`
   position: absolute;
