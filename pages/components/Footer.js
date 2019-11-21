@@ -12,7 +12,7 @@ import {
 const Footer = props => (
   <FooterStyled>
     <h3>Find us on:</h3>
-    <secton className="buttonBox">
+    <section className="buttonBox">
       <ul>
         <li>
           <a
@@ -49,7 +49,7 @@ const Footer = props => (
           </a>
         </li>
       </ul>
-    </secton>
+    </section>
     <section className="footer-bottom">
       <span>Just for Tomorrow &reg; {new Date().getFullYear()}</span>
     </section>

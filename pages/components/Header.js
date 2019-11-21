@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 // Components
 import TopBar from "./Topbar";
+import ToggleContent from "./ToggleContent";
+import FormModal from "./FormModal";
 
 const HeaderText = styled.section`
   color: ${({ theme }) => theme.colors.white};
@@ -45,25 +47,39 @@ const HeaderStyle = styled.header`
   background-size: cover;
 `;
 
-const Header = () => (
-  <>
-    <TopBar />
-    <HeaderStyle>
-      <HeaderBody>
-        <HeaderText>
-          <h2>
-            Welcome to the <span>Just For Tomorrow</span> project.
-          </h2>
-          <h3>
-            We invite you to contribute to a future book loosely based on
-            Narcotics Anonymous' "Just for Today" and Alcoholics Anonymous' "A
-            Day at a Time"
-          </h3>
-          <button aria-label="Contribute A Page">Contribute A Page</button>
-        </HeaderText>
-      </HeaderBody>
-    </HeaderStyle>
-  </>
-);
+const Header = () => {
+  return (
+    <>
+      <TopBar />
+      <HeaderStyle>
+        <HeaderBody className="header-root">
+          <HeaderText>
+            <h2>
+              Welcome to the <span>Just For Tomorrow</span> project.
+            </h2>
+            <h3>
+              We invite you to contribute to a future book loosely based on
+              Narcotics Anonymous' "Just for Today" and Alcoholics Anonymous' "A
+              Day at a Time"
+            </h3>
+            <button aria-label="Contribute A Page">Contribute A Page</button>
+            <p>
+              Click to reveal a secret:
+              <ToggleContent
+                toggle={show => <button onClick={show}>Open</button>}
+                content={hide => (
+                  <FormModal>
+                    There is no spoon...
+                    <button onClick={hide}>Close</button>
+                  </FormModal>
+                )}
+              />
+            </p>
+          </HeaderText>
+        </HeaderBody>
+      </HeaderStyle>
+    </>
+  );
+};
 
 export default Header;

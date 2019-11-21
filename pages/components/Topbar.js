@@ -72,6 +72,7 @@ class Topbar extends Component {
       }
     });
   }
+
   render() {
     return (
       <NavWrapper>
