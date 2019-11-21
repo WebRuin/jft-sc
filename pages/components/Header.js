@@ -9,11 +9,11 @@ const HeaderText = styled.section`
   width: 80vw;
 
   h2 {
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.textSize.h2};
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.textSize.h3};
     margin-top: 1.25rem;
   }
 

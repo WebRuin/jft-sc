@@ -17,7 +17,7 @@ const BodyStyle = styled.section`
 
   p {
     font-size: 1.75rem;
-    padding: 1rem 4rem;
+    padding: 1rem 7vw;
     text-align: center;
   }
 

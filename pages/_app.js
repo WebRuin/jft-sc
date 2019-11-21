@@ -22,6 +22,8 @@ const theme = {
   },
 
   textSize: {
+    h2: "3rem",
+    h3: "2rem",
     linkTextSize: "1.75rem",
     smallDeviceTextSize: "1.55rem"
   }
@@ -52,6 +54,23 @@ const GlobalStyle = createGlobalStyle`
   ::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+
+  //
+  // Scrollbar
+  //
+
+  body::-webkit-scrollbar {
+    width: 2rem;
+  }
+  body::-webkit-scrollbar-track {
+    background: #ffb95e;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  body::-webkit-scrollbar-thumb {
+    outline: 1px solid #cc5804;
+    background: #0a023b;
+    border: 2px solid #cc5804;
   }
 
   .loaded-logo {
