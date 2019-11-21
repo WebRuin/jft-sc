@@ -7,8 +7,8 @@ const BodyStyle = styled.section`
   align-items: center;
   flex-direction: column;
   padding: 2rem;
-  color: ${({ theme }) => theme.colors.secondaryDark};
-  background: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.highlight};
 
   h3 {
     font-size: 2.55rem;

@@ -9,6 +9,7 @@ const theme = {
     text: "#ffb95e",
     accent: "#5a5099",
     secondary: "#2204cc",
+    secondaryDark: "#0a023b",
     secondaryDark75: "#0a023bb9",
     darkText: "#2a2343",
     white: "#eee",
@@ -18,7 +19,8 @@ const theme = {
 
   spacing: {
     fullWidth: "100vw",
-    fullHeight: "100vh"
+    fullHeight: "100vh",
+    pageHeaderHeight: "70vh"
   },
 
   textSize: {
@@ -64,13 +66,14 @@ const GlobalStyle = createGlobalStyle`
     width: 2rem;
   }
   body::-webkit-scrollbar-track {
-    background: #ffb95e;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: #cc5804;
   }
   body::-webkit-scrollbar-thumb {
     outline: 1px solid #cc5804;
     background: #0a023b;
     border: 2px solid #cc5804;
+    border-top: 0;
+    border-bottom: 0;
   }
 
   .loaded-logo {
@@ -82,47 +85,6 @@ const GlobalStyle = createGlobalStyle`
   .loaded-social {
     opacity: 1 !important;
     margin-top: 0px !important;
-  }
-
-  .nav-fadeIn {
-    top: 0;
-    height: 80px !important;
-    background: ${({ theme }) => theme.colors.secondaryDark75};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.highlight};
-  }
-
-  .logo-fadeIn {
-    width: 402px !important;
-    margin-left: -201px !important;
-  }
-
-  .logo-span-fadeIn {
-    margin-top: 8px !important;
-    font-size: 2.3rem !important;
-  }
-
-  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-    .nav-fadeIn {
-      top: 0;
-      height: 25px !important;
-    }
-
-    .logo-span-fadeIn {
-      margin-left: 0.3rem !important;
-      font-size: 1.2rem !important;
-    }
-  }
-
-  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-    .nav-fadeIn {
-      top: 0;
-      height: 25px !important;
-    }
-  
-    .logo-span-fadeIn {
-      margin-left: 0.3rem !important;
-      font-size: 1.2rem !important;
-    }
   }
 `;
 
