@@ -40,7 +40,7 @@ const HeaderBody = styled.section`
 const HeaderStyle = styled.header`
   height: ${({ theme }) => theme.spacing.fullHeight};
   background: ${({ theme }) => theme.colors.primary};
-  background: linear-gradient(#0a023bb9, rgba(51, 51, 51, 0.85), transparent),
+  background: linear-gradient(#0a023bb9, rgba(51, 51, 51, 0.85)),
     url("book-stack-books-bookshop-264635.jpg");
   background-size: cover;
 `;

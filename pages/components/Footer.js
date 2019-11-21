@@ -12,7 +12,7 @@ import {
 const Footer = props => (
   <FooterStyled>
     <h3>Find us on:</h3>
-    <secton className="buttonBox">
+    <section className="buttonBox">
       <ul>
         <li>
           <a
@@ -49,7 +49,7 @@ const Footer = props => (
           </a>
         </li>
       </ul>
-    </secton>
+    </section>
     <section className="footer-bottom">
       <span>Just for Tomorrow &reg; {new Date().getFullYear()}</span>
     </section>
@@ -58,7 +58,7 @@ const Footer = props => (
 
 const FooterStyled = styled.footer`
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }) => theme.colors.secondaryDark};
 
   h3 {
     font-size: ${({ theme }) => theme.textSize.h3};
@@ -106,20 +106,20 @@ const FooterStyled = styled.footer`
     background: #f2b66d;
   }
 
-  ul li a span:hover {
-    color: ${({ theme }) => theme.colors.secondary};
-    background: #f2b66d;
-  }
-
   ul li a span {
     width: inherit;
     height: 100px;
     display: flex;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.highlight};
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
     font-weight: normal;
+  }
+
+  ul li a span:hover {
+    color: ${({ theme }) => theme.colors.secondaryDark};
+    background: #f2b66d;
   }
 
   .footer-bottom {
