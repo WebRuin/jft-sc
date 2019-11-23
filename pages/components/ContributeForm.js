@@ -1,7 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import { TextField, FieldSet } from "formik-material-ui";
-import styled from "styled-components";
+import { TextField } from "formik-material-ui";
 import Button from "@material-ui/core/Button";
 
 const validateEmail = value => {
