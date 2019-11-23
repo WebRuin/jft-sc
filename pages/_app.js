@@ -7,6 +7,7 @@ const theme = {
     primary: "#1f75ff",
     highlight: "#cc5804",
     text: "#ffb95e",
+    text10: "#ffb95e1c",
     accent: "#5a5099",
     secondary: "#2204cc",
     secondaryDark: "#0a023b",

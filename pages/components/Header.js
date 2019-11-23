@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState, Children } from "react";
 import styled from "styled-components";
 
 // Components
-import TopBar from "./Topbar";
-import ToggleContent from "./ToggleContent";
 import FormModal from "./FormModal";
+import ContributeForm from "./ContributeForm";
+import ToggleContent from "./ToggleContent";
+import TopBar from "./Topbar";
+
+//
+// Styles
+//
 
 const HeaderText = styled.section`
   color: ${({ theme }) => theme.colors.white};
@@ -62,15 +67,19 @@ const Header = () => {
               Narcotics Anonymous' "Just for Today" and Alcoholics Anonymous' "A
               Day at a Time"
             </h3>
-            <button aria-label="Contribute A Page">Contribute A Page</button>
             <p>
-              Click to reveal a secret:
               <ToggleContent
-                toggle={show => <button onClick={show}>Open</button>}
+                toggle={show => (
+                  <button aria-label="Contribute A Page" onClick={show}>
+                    Contribute A Page
+                  </button>
+                )}
                 content={hide => (
-                  <FormModal>
-                    There is no spoon...
-                    <button onClick={hide}>Close</button>
+                  <FormModal role="dialog">
+                    <ContributeForm />
+                    <button className="close" aria-label="Close" onClick={hide}>
+                      Close
+                    </button>
                   </FormModal>
                 )}
               />
