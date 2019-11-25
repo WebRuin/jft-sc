@@ -130,7 +130,11 @@ const FooterStyled = styled.footer`
   }
 
   @media screen and (max-width: 360px) {
-    height: auto;
+    height: 384px;
+
+    .buttonBox {
+      height: 200px !important;
+    }
 
     ul {
       flex-wrap: wrap;

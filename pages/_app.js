@@ -73,8 +73,6 @@ const GlobalStyle = createGlobalStyle`
     outline: 1px solid #cc5804;
     background: #0a023b;
     border: 2px solid #cc5804;
-    border-top: 0;
-    border-bottom: 0;
   }
 
   .loaded-logo {

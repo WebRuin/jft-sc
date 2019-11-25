@@ -1,10 +1,8 @@
-import React, { useState, Children } from "react";
+import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 // Components
-import FormModal from "./FormModal";
-import ContributeForm from "./ContributeForm";
-import ToggleContent from "./ToggleContent";
 import TopBar from "./Topbar";
 
 //
@@ -24,7 +22,7 @@ const HeaderText = styled.section`
     margin-top: 1.25rem;
   }
 
-  button {
+  .button {
     border: none;
     margin: 1.5rem 0 0 0;
     padding: 0.5rem 0.75rem;
@@ -34,6 +32,7 @@ const HeaderText = styled.section`
     border-radius: 7px;
     background: ${({ theme }) => theme.colors.secondaryDark75};
     font-size: 2rem;
+    text-decoration: none;
   }
 `;
 
@@ -67,23 +66,11 @@ const Header = () => {
               Narcotics Anonymous' "Just for Today" and Alcoholics Anonymous' "A
               Day at a Time"
             </h3>
-            <p>
-              <ToggleContent
-                toggle={show => (
-                  <button aria-label="Contribute A Page" onClick={show}>
-                    Contribute A Page
-                  </button>
-                )}
-                content={hide => (
-                  <FormModal role="dialog">
-                    <ContributeForm />
-                    <button className="close" aria-label="Close" onClick={hide}>
-                      Close
-                    </button>
-                  </FormModal>
-                )}
-              />
-            </p>
+            <Link href="/contribute">
+              <a className="button" aria-label="Contribute A Page">
+                Contribute A Page
+              </a>
+            </Link>
           </HeaderText>
         </HeaderBody>
       </HeaderStyle>

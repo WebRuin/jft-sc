@@ -1,45 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-const BodyStyle = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  color: ${({ theme }) => theme.colors.white};
-  background: ${({ theme }) => theme.colors.highlight};
+import LastThreePages from "./LastThreePages";
+import ContributeForm from "./ContributeForm";
 
-  h3 {
-    font-size: 2.55rem;
-    margin-bottom: 0;
-  }
-
-  p {
-    font-size: 1.75rem;
-    padding: 1rem 7vw;
-    text-align: center;
-  }
-
-  p span {
-    margin-left: 5px;
-    font-weight: bold;
-  }
-`;
-
-const Body = props => (
-  <BodyStyle>
-    <h3 aria-label="Our Purpose">Our Purpose</h3>
-    <p>
-      The purpose of the
-      <span aria-label="Just For Tomorrow">Just For Tomorrow</span> project is
-      to gather deliberately sarcastic daily readings (ie. affirmations,
-      meditations, stories, etc) that force you think "Just for Today". Our hope
-      is that you will be creative and have fun with this. It is also the
-      purpose of the project to find a positive solution to the negative effects
-      or procrastination.
-    </p>
-  </BodyStyle>
+const ContributeBody = () => (
+  <StyledContributeBody>
+    <LastThreePages />
+    <ContributeForm />
+  </StyledContributeBody>
 );
 
-export default Body;
+const StyledContributeBody = styled.section`
+  display: flex;
+  justify-content: space-around;
+  background: ${({ theme }) => theme.colors.secondaryDark};
+  border-top: 2px solid ${({ theme }) => theme.colors.highlight};
+  border-bottom: 2px solid ${({ theme }) => theme.colors.highlight};
+  padding: 2rem;
+`;
+
+export default ContributeBody;
