@@ -13,6 +13,7 @@ const ContributeBody = () => (
 
 const StyledContributeBody = styled.section`
   display: flex;
+  align-items: flex-start;
   justify-content: space-around;
   background: ${({ theme }) => theme.colors.secondaryDark};
   border-top: 2px solid ${({ theme }) => theme.colors.highlight};

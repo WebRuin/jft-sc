@@ -27,13 +27,8 @@ const FormBody = styled.section`
     text-align: center;
   }
   h2 {
-    font-size: 2.5rem;
     margin-bottom: 0;
-  }
-
-  p {
-    font-size: 1.75rem;
-    margin-top: 0;
+    font-size: 2.5rem;
   }
 
   form {
@@ -43,10 +38,15 @@ const FormBody = styled.section`
     margin-top: 2rem;
     border-radius: 10px;
     justify-content: space-between;
-    border: 2px solid ${({ theme }) => theme.colors.highlight};
+
+    p {
+      font-size: 1.75rem;
+      margin-top: 0;
+    }
 
     .field {
       width: 48%;
+      padding: 0 10px;
       border-radius: 7px;
       margin-bottom: 1rem;
       background: ${({ theme }) => theme.colors.text10};
@@ -56,10 +56,12 @@ const FormBody = styled.section`
         color: ${({ theme }) => theme.colors.highlight};
 
         &::after {
-          border-bottom: 1px solid ${({ theme }) => theme.colors.highlight} !important;
+          border-bottom: 1px solid ${({ theme }) =>
+            theme.colors.highlight} !important;
         }
         &::after:hover {
-          border-bottom: 2px solid ${({ theme }) => theme.colors.highlight} !important;
+          border-bottom: 2px solid ${({ theme }) =>
+            theme.colors.highlight} !important;
         }
       }
     }
@@ -69,10 +71,17 @@ const FormBody = styled.section`
 
     .text-field {
       width: 100%;
+      padding: 10px;
       font-size: 1.75rem;
       border-radius: 7px;
       color: ${({ theme }) => theme.colors.highlight};
       background: ${({ theme }) => theme.colors.text10};
+      border: none;
+      border-bottom: 2px solid ${({ theme }) => theme.colors.highlight};
+    }
+
+    .title {
+      width: 100%;
     }
   }
 
@@ -86,7 +95,26 @@ const FormBody = styled.section`
     border-radius: 7px;
     background: ${({ theme }) => theme.colors.secondaryDark};
     font-size: 2rem;
+
+    /* .MuiButton-label {
+      z-index: 10000;
+      position: relative;
+    }
+
+    .MuiTouchRipple-root {
+      background: ${({ theme }) => theme.colors.secondaryDark};
+
+      &::hover {
+        background: ${({ theme }) => theme.colors.highlight};
+        border: 2px solid ${({ theme }) => theme.colors.secondaryDark};
+      } */
+    }
   }
+`;
+
+const Fieldset = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ContributeForm = () => (
@@ -105,17 +133,28 @@ const ContributeForm = () => (
         <h2>Submit an idea for a page.</h2>
         <Form>
           <p>Have fun! Sarcasm is welcomed 😅!</p>
+          <Fieldset>
+            <Field
+              className="field"
+              type="name"
+              name="firstName"
+              placeholder="What is you first name?"
+              component={TextField}
+            />
+            <Field
+              className="field"
+              validate={validateEmail}
+              type="email"
+              name="email"
+              placeholder="What is you email?"
+              component={TextField}
+            />
+          </Fieldset>
           <Field
-            className="field"
-            type="name"
-            name="firstName"
-            component={TextField}
-          />
-          <Field
-            className="field"
-            validate={validateEmail}
-            type="email"
-            name="email"
+            className="field title"
+            type="title"
+            name="title"
+            placeholder="A funny title..."
             component={TextField}
           />
           <Field

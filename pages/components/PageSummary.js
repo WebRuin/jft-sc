@@ -27,12 +27,13 @@ const StyledPageSummary = styled.aside`
 
   p {
     margin-top: 0;
-    text-align: left;
-    font-size: 0.85rem;
+    text-align: left !important;
+    font-size: 1.25rem !important;
   }
 
   .meta-box {
     display: flex;
+    margin-top: -15px;
     margin-bottom: 0.75rem;
     justify-content: space-between;
   }

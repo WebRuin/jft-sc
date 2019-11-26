@@ -1,34 +1,45 @@
+const withCSS = require("@zeit/next-css");
+const withImages = require("next-images");
 const withPlugins = require("next-compose-plugins");
-const optimizedImages = require("next-optimized-images");
 
-module.exports = withPlugins([
+// fix: prevents error when .css files are required by node
+if (typeof require !== "undefined") {
+  require.extensions[".css"] = file => {};
+}
+
+const nextConfig = {
+  target: "server",
+  webpack: (config, { dev }) => {
+    config.module.rules.push({
+      test: /\.(raw)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      use: "raw-loader"
+    });
+
+    return config;
+  }
+};
+
+module.exports = withPlugins(
   [
-    optimizedImages,
-    {
-      inlineImageLimit: 8192,
-      imagesFolder: "images",
-      imagesName: "[name]-[hash].[ext]",
-      handleImages: ["jpeg", "png", "svg", "webp", "gif"],
-      optimizeImages: true,
-      optimizeImagesInDev: true,
-      mozjpeg: {
-        quality: 80
-      },
-      optipng: {
-        optimizationLevel: 3
-      },
-      pngquant: false,
-      gifsicle: {
-        interlaced: true,
-        optimizationLevel: 3
-      },
-      svgo: {
-        // enable/disable svgo plugins here
-      },
-      webp: {
-        preset: "default",
-        quality: 75
+    withImages,
+    withCSS({
+      target: "serverless",
+      webpack(config) {
+        config.module.rules.push({
+          test: /\.(png|svg|eot|otf|ttf|woff|woff2)$/,
+          use: {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              publicPath: "/_next/static/",
+              outputPath: "static/",
+              name: "[name].[ext]"
+            }
+          }
+        });
+        return config;
       }
-    }
-  ]
-]);
+    })
+  ],
+  nextConfig
+);
