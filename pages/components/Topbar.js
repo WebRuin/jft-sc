@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import Headroom from "react-headroom";
 
 //
 // Fontawesome Fonts
@@ -41,13 +42,8 @@ function HomeIcon(props) {
   );
 }
 
-const NavWrapper = styled.section`
-  position: fixed;
-  width: ${({ theme }) => theme.spacing.fullWidth};
-`;
-
 const Topbar = () => (
-  <NavWrapper>
+  <Headroom>
     <Nav className="nav">
       <Menu className="menu">
         <li>
@@ -108,7 +104,7 @@ const Topbar = () => (
         </li>
       </Social>
     </Nav>
-  </NavWrapper>
+  </Headroom>
 );
 
 const Logo = styled.div`
@@ -220,7 +216,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   color: ${({ theme }) => theme.colors.text};
-  background: ${({ theme }) => theme.colors.secondaryDark75};
+  background: ${({ theme }) => theme.colors.secondaryDark25};
   border-bottom: 2px solid ${({ theme }) => theme.colors.highlight};
 
   @media screen and (max-width: 360px) {
