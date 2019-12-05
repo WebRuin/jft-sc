@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
 
@@ -122,8 +122,18 @@ const FieldTextArea = styled.div`
 
 const ContributeForm = () => {
   const { handleSubmit, register, errors } = useForm();
+  const [formData, setFormData] = useState();
   const onSubmit = values => {
-    console.log(values);
+    setFormData(values);
+    console.log(value);
+    async function getData() {
+      const res = await fetch("/api/put", {
+        values: values,
+        method: "POST"
+      }).then(res => {
+        return res.json;
+      });
+    }
   };
 
   return (
@@ -135,13 +145,13 @@ const ContributeForm = () => {
           <Fields>
             <input
               className="field"
-              name="firstName"
-              placeholder="What is you first name?"
+              name="name"
+              placeholder="What is you first and last initial?"
               ref={register({
                 required: "Required"
               })}
             />
-            {errors.firstName && errors.firstName.type === "required" && (
+            {errors.name && errors.name.type === "required" && (
               <span className="error">This is required</span>
             )}
           </Fields>

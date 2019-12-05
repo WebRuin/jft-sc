@@ -1,5 +1,6 @@
 import React from "react";
 import NextApp from "next/app";
+import Head from "next/head";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const theme = {
@@ -89,21 +90,26 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class App extends NextApp {
-  // remove it here
-  componentDidMount() {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles && jssStyles.parentNode)
-      jssStyles.parentNode.removeChild(jssStyles);
-  }
+  // // remove it here
+  // componentDidMount() {
+  //   const jssStyles = document.querySelector("#jss-server-side");
+  //   if (jssStyles && jssStyles.parentNode)
+  //     jssStyles.parentNode.removeChild(jssStyles);
+  // }
 
   render() {
     const { Component, pageProps } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <>
+        <Head>
+          <title>Just for Tomorrow</title>
+        </Head>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </>
     );
   }
 }

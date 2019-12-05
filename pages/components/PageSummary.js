@@ -3,15 +3,12 @@ import styled from "styled-components";
 
 const PageSummary = props => (
   <StyledPageSummary>
-    <h4>Page Title</h4>
+    <h4>{props.title}</h4>
     <div className="meta-box">
-      <span className="author">{props.author}</span>
+      <span className="name">{props.name}</span>
       <span className="date">{props.date}</span>
     </div>
-    <p>
-      Lorem ipsum dolor amet everyday carry dreamcatcher crucifix, health goth
-      brunch snackwave wolf franzen 3 wolf moon.
-    </p>
+    <p>{props.body}</p>
   </StyledPageSummary>
 );
 

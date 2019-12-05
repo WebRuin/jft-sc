@@ -1,17 +1,40 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import PageSummary from "./PageSummary";
 
-const lastThreePages = props => (
-  <StyledLastThreePages>
-    <h2>Last Three Pages</h2>
-    <p className="motivation">Just in case you need motivation.</p>
-    <PageSummary author="Tim Smith" date="09/24/2019" />
-    <PageSummary author="Helen Schaffer" date="10/24/2019" />
-    <PageSummary author="Eric Rigor" date="11/24/2019" />
-  </StyledLastThreePages>
-);
+const lastThreePages = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function getData() {
+      const res = await fetch("/api/get");
+      const newData = await res.json();
+      setData(newData);
+    }
+    getData();
+  }, []);
+
+  return (
+    <StyledLastThreePages>
+      <h2>Last Three Pages</h2>
+      <p className="motivation">Just in case you need motivation.</p>
+      {data.length > 0 ? (
+        data.map(d => (
+          <PageSummary
+            key={d.ts}
+            body={d.data.body}
+            date={d.data.date}
+            email={d.data.email}
+            name={d.data.name}
+            title={d.data.title}
+          />
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </StyledLastThreePages>
+  );
+};
 
 const StyledLastThreePages = styled.section`
   width: 30%;
