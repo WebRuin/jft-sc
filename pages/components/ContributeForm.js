@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useForm from "react-hook-form";
 import styled from "styled-components";
 
@@ -45,6 +45,10 @@ const FormBody = styled.section`
       border-radius: 7px;
       background: ${({ theme }) => theme.colors.secondaryDark};
       font-size: 2rem;
+    }
+    button:hover {
+      color: ${({ theme }) => theme.colors.secondaryDark};
+      background: ${({ theme }) => theme.colors.highlight};
     }
   }
 `;
@@ -122,19 +126,33 @@ const FieldTextArea = styled.div`
 
 const ContributeForm = () => {
   const { handleSubmit, register, errors } = useForm();
-  const [formData, setFormData] = useState();
-  const onSubmit = values => {
-    setFormData(values);
-    console.log(value);
-    async function getData() {
-      const res = await fetch("/api/put", {
-        values: values,
-        method: "POST"
-      }).then(res => {
-        return res.json;
-      });
+
+  async function onSubmit(values) {
+    try {
+      console.log(values);
+      console.log(`JSON: ${JSON.stringify(values)}`);
+      const data = await postData("/api/put", values);
+    } catch (error) {
+      console.error(error);
     }
-  };
+
+    async function postData(url = "", data = {}) {
+      const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        redirect: "follow",
+        referrer: "no-referrer",
+        body: JSON.stringify(data)
+      });
+
+      return await response.json(); // parses JSON response into native JavaScript object
+    }
+  }
 
   return (
     <FormBody>
@@ -198,7 +216,6 @@ const ContributeForm = () => {
             <span className="error">This is required</span>
           )}
         </FieldTextArea>
-
         <button type="submit">Submit</button>
       </form>
     </FormBody>

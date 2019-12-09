@@ -9,22 +9,10 @@ const client = new faunadb.Client({ secret });
 module.exports = async (req, res) => {
   try {
     const dbs = await client.query(
-      q.Map(
-        // iterate each item in result
-        q.Paginate(
-          // make paginatable
-          q.Match(
-            // query index
-            q.Index("all_pages") // specify source
-          )
-        ),
-        ref => q.Get(ref) // lookup each result by its reference
-      )
+      q.Map(q.Paginate(q.Match(q.Index("all_pages"))), ref => q.Get(ref))
     );
-    // ok
     res.status(200).json(dbs.data);
   } catch (e) {
-    // something went wrong
     res.status(500).json({ error: e.message });
   }
 };

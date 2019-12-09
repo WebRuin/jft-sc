@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import PageSummary from "./PageSummary";
 
@@ -30,11 +33,27 @@ const lastThreePages = () => {
           />
         ))
       ) : (
-        <p>Loading...</p>
+        <CenterSpinner>
+          <Loader
+            type="Oval"
+            color="#cc5804"
+            height={100}
+            width={100}
+            timeout={3000}
+          />
+        </CenterSpinner>
       )}
     </StyledLastThreePages>
   );
 };
+
+const CenterSpinner = styled.div`
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 const StyledLastThreePages = styled.section`
   width: 30%;

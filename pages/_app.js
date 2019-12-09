@@ -8,6 +8,7 @@ const theme = {
     primary: "#1f75ff",
     highlight: "#cc5804",
     text: "#ffb95e",
+    text25: "#ffb95e52",
     text10: "#ffb95e1c",
     accent: "#5a5099",
     secondary: "#2204cc",
@@ -90,13 +91,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class App extends NextApp {
-  // // remove it here
-  // componentDidMount() {
-  //   const jssStyles = document.querySelector("#jss-server-side");
-  //   if (jssStyles && jssStyles.parentNode)
-  //     jssStyles.parentNode.removeChild(jssStyles);
-  // }
-
   render() {
     const { Component, pageProps } = this.props;
 
