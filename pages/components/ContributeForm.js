@@ -129,8 +129,6 @@ const ContributeForm = () => {
 
   async function onSubmit(values) {
     try {
-      console.log(values);
-      console.log(`JSON: ${JSON.stringify(values)}`);
       const data = await postData("/api/put", values);
     } catch (error) {
       console.error(error);
