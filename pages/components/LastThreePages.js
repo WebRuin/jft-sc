@@ -29,6 +29,7 @@ const lastThreePages = () => {
             date={d.data.date}
             email={d.data.email}
             name={d.data.name}
+            readableDate={d.data.readableDate}
             title={d.data.title}
           />
         ))

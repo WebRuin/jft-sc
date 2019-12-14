@@ -9,7 +9,13 @@ const client = new faunadb.Client({ secret });
 module.exports = async (req, res) => {
   try {
     const dbs = await client.query(
-      q.Map(q.Paginate(q.Match(q.Index("all_pages"))), ref => q.Get(ref))
+      q.Map(
+        q.Paginate(q.Match(q.Index("all_pages")), {
+          //! Find way to change order
+          size: 3
+        }),
+        ref => q.Get(ref)
+      )
     );
     res.status(200).json(dbs.data);
   } catch (e) {

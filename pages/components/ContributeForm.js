@@ -150,12 +150,14 @@ const ContributeForm = () => {
 
       return await response.json(); // parses JSON response into native JavaScript object
     }
+
+    document.getElementById("contributeForm").reset();
   }
 
   return (
     <FormBody>
       <h2>Submit an idea for a page.</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} id="contributeForm">
         <p>Have fun! Sarcasm is welcomed 😅!</p>
         <Fieldset>
           <Fields>

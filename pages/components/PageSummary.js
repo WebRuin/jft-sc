@@ -6,7 +6,7 @@ const PageSummary = props => (
     <h4>{props.title}</h4>
     <div className="meta-box">
       <span className="name">{props.name}</span>
-      <span className="date">{props.date}</span>
+      <span className="date">{props.readableDate}</span>
     </div>
     <p>{props.body}</p>
   </StyledPageSummary>
