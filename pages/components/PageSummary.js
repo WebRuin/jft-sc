@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import PageLink from "./PageLink";
+
 const PageSummary = props => (
   <StyledPageSummary>
-    <h4>{props.title}</h4>
+    <PageLink title={props.title} id={props.id} />
     <div className="meta-box">
       <span className="name">{props.name}</span>
       <span className="date">{props.readableDate}</span>

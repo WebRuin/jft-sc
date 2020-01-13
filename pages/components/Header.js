@@ -4,6 +4,7 @@ import Link from "next/link";
 
 // Components
 import TopBar from "./Topbar";
+import Button from "./Button";
 
 //
 // Styles
@@ -44,10 +45,14 @@ const HeaderBody = styled.section`
 `;
 
 const HeaderStyle = styled.header`
+  margin-top: -60px;
   height: ${({ theme }) => theme.spacing.fullHeight};
   background: ${({ theme }) => theme.colors.primary};
-  background: linear-gradient(#0a023bb9, rgba(51, 51, 51, 0.85)),
-    url("book-stack-books-bookshop-264635.jpg");
+  background: linear-gradient(
+      ${({ theme }) => theme.colors.secondaryDark45},
+      ${({ theme }) => theme.colors.secondaryDark25}
+    ),
+    url("https://res.cloudinary.com/tihos/image/upload/q_auto/v1574168832/just-for-tomorrow/blur-books-close-up-159866.jpg");
   background-size: cover;
 `;
 
@@ -66,11 +71,7 @@ const Header = () => {
               Narcotics Anonymous' "Just for Today" and Alcoholics Anonymous' "A
               Day at a Time"
             </h3>
-            <Link href="/contribute">
-              <a className="button" aria-label="Contribute A Page">
-                Contribute A Page
-              </a>
-            </Link>
+            <Button page="/contribute">Contribute A Page</Button>
           </HeaderText>
         </HeaderBody>
       </HeaderStyle>

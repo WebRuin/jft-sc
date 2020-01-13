@@ -7,15 +7,10 @@ const q = faunadb.query;
 const client = new faunadb.Client({ secret });
 
 module.exports = async (req, res) => {
+  console.log(req.body);
   try {
     const dbs = await client.query(
-      q.Map(
-        q.Paginate(q.Match(q.Index("all_pages_reverse")), {
-          //! Find way to change order
-          size: 3
-        }),
-        ref => q.Get(ref)
-      )
+      q.Get(q.Ref(q.Collection("all_pages"), req.body))
     );
     res.status(200).json(dbs.data);
   } catch (e) {

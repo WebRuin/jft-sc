@@ -130,12 +130,13 @@ const ContributeForm = () => {
   async function onSubmit(values) {
     try {
       const data = await postData("/api/put", values);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
 
     async function postData(url = "", data = {}) {
-      const response = await fetch(url, {
+      const res = await fetch(url, {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -148,7 +149,7 @@ const ContributeForm = () => {
         body: JSON.stringify(data)
       });
 
-      return await response.json(); // parses JSON response into native JavaScript object
+      return await res.json(); // parses JSON response into native JavaScript object
     }
 
     document.getElementById("contributeForm").reset();

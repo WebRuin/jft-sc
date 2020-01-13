@@ -12,7 +12,8 @@ const lastThreePages = () => {
     async function getData() {
       const res = await fetch("/api/get");
       const newData = await res.json();
-      setData(newData);
+      const reversedData = newData.reverse();
+      setData(reversedData);
     }
     getData();
   }, []);
@@ -25,6 +26,7 @@ const lastThreePages = () => {
         data.map(d => (
           <PageSummary
             key={d.ts}
+            id={d.ts}
             body={d.data.body}
             date={d.data.date}
             email={d.data.email}
