@@ -10,9 +10,8 @@ module.exports = async (req, res) => {
   try {
     const dbs = await client.query(
       q.Map(
-        q.Paginate(q.Match(q.Index("all_pages_reverse")), {
-          //! Find way to change order
-          size: 3
+        q.Paginate(q.Match(q.Index("all_pages")), {
+          //size: 3
         }),
         ref => q.Get(ref)
       )

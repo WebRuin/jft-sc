@@ -12,11 +12,17 @@ const lastThreePages = () => {
     async function getData() {
       const res = await fetch("/api/get");
       const newData = await res.json();
-      const reversedData = newData.reverse();
-      setData(reversedData);
+      console.log(newData);
+      setData(getLastThree(newData));
     }
     getData();
   }, []);
+
+  const getLastThree = arr => {
+    const lastThree = arr.slice(Math.max(arr.length - 3, 1));
+    console.log(lastThree);
+    return lastThree;
+  };
 
   return (
     <StyledLastThreePages>
