@@ -124,7 +124,7 @@ const FieldTextArea = styled.div`
   }
 `;
 
-const ContributeForm = () => {
+const ContributeForm = props => {
   const { handleSubmit, register, errors } = useForm();
 
   async function onSubmit(values) {
@@ -153,6 +153,7 @@ const ContributeForm = () => {
     }
 
     document.getElementById("contributeForm").reset();
+    props.onSuccess();
   }
 
   return (

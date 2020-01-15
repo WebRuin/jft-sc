@@ -6,22 +6,20 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import PageSummary from "./PageSummary";
 
-const lastThreePages = () => {
+const lastThreePages = props => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function getData() {
       const res = await fetch("/api/get");
       const newData = await res.json();
-      console.log(newData);
       setData(getLastThree(newData));
     }
     getData();
-  }, []);
+  }, [props.rev]);
 
   const getLastThree = arr => {
     const lastThree = arr.slice(Math.max(arr.length - 3, 1));
-    console.log(lastThree);
-    return lastThree;
+    return lastThree.reverse();
   };
 
   return (

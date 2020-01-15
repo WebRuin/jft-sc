@@ -1,15 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
 import LastThreePages from "./LastThreePages";
 import ContributeForm from "./ContributeForm";
 
-const ContributeBody = () => (
-  <StyledContributeBody>
-    <LastThreePages />
-    <ContributeForm />
-  </StyledContributeBody>
-);
+const ContributeBody = () => {
+  const [rev, setRev] = useState(new Date().valueOf());
+
+  return (
+    <StyledContributeBody>
+      <LastThreePages rev={rev} />
+      <ContributeForm
+        onSuccess={() => {
+          setRev(new Date().valueOf());
+        }}
+      />
+    </StyledContributeBody>
+  );
+};
 
 const StyledContributeBody = styled.section`
   display: flex;
